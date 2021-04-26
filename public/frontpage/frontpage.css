@@ -1,0 +1,206 @@
+
+  *, *:before, *:after {
+    box-sizing: border-box;
+  }
+
+  /* hide scrollbar but allow scrolling */
+body {
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+  scrollbar-width: none; /* for Firefox */
+  overflow-y: scroll; 
+}
+
+body::-webkit-scrollbar {
+  display: none; /* for Chrome, Safari, and Opera */
+}
+  
+  body {
+    margin: 0;
+    font-family: 'Monaco', monospace;
+    background: #302525;
+  }
+
+
+  nav {
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 1.5rem 2rem;
+    background: linear-gradient(to right bottom, #85ABCE 50%, #FB5A5A calc(50% + 1px));
+  }
+
+  .main {
+      min-height: calc(100vh - 120px);
+      margin: 2vh 10vw;
+  }
+
+  footer {
+    background: #85ABCE 50%;
+    padding: 1rem 1rem;
+    position: sticky;
+    bottom: 0;
+  }
+
+  #footer-copyright {
+      display: flex;
+      justify-content: center;
+  }
+
+  .links {
+    display: flex;
+    margin: 0 -1rem;
+    
+  }
+  
+  .links a {
+    display: inline-block;
+    margin: 0 1em;
+    background-color: #85ABCE;
+    box-shadow: 2.5px 8px 15px -5.5px rgba(0, 0, 0, 0.4);
+    padding: .3rem;
+  }
+
+  .links a:hover {
+    transition: filter 250ms;
+    filter: brightness(110%);
+  }
+  
+  .logo {
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+  }
+
+  nav a {
+    color: #0f0f0f;
+    text-decoration: none;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+  }
+
+  h1, p, label {
+    color: aliceblue;
+  }
+
+  .center {
+    text-align: center;
+  }
+
+  .contact-form-wrapper {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto;
+    column-gap: 10px;
+  }
+
+  .contact-form-wrapper a:hover {
+    transition: filter 250ms;
+    filter: brightness(30%);
+  }
+
+  input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0; /* Top and bottom margin */
+    border: 0;
+    border-bottom: 1px solid #eee;
+    box-shadow: 2.5px 8px 15px -5.5px rgba(0, 0, 0, 0.4);
+    font-family: inherit;
+    resize: vertical;
+    background: aliceblue;
+  }
+
+  .pushable {
+    position: relative;
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    outline-offset: 4px;
+    transition: filter 600ms;
+    font-family: inherit;
+  }
+
+  .shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    background: hsl(0deg 0% 0% / 0.25);
+    will-change: transform;
+    transform: translateY(2px);
+    transition: transform 600ms cubic-bezier(.3, .7, .4, 1);
+    filter: blur(4px);
+  }
+
+  .edge {
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    background: linear-gradient(
+      to left,
+      hsl(340deg 100% 16%) 0%,
+      hsl(340deg 100% 32%) 8%,
+      hsl(340deg 100% 32%) 92%,
+      hsl(340deg 100% 16%) 100%
+    );
+  }
+
+  .front {
+    display: block;
+    position: relative;
+    padding: 12px 42px;
+    border-radius: 12px;
+    font-size: 1.25rem;
+    color: white;
+    background: hsl(345deg 100% 47%);
+    /* background: hsl(0 95% 67%); */
+    will-change: transform;
+    transform: translateY(-4px);
+    transition: transform 600ms cubic-bezier(.3, .7, .4, 1);
+  }
+
+  .pushable:hover {
+    transition: filter 250ms;
+    filter: brightness(110%);
+  }
+
+  .pushable:hover .front {
+    transform: translateY(-6px);
+    transition: 
+      transform
+      250ms
+      cubic-bezier(.3, .7, .4, 1.5);
+  }
+
+  .pushable:active .front {
+    transform: translateY(-2px);
+    transition: transform 34ms;
+  }
+
+  .pushable:hover .shadow {
+    transform: translateY(4px);
+    transition:
+      transform
+      250ms
+      cubic-bezier(.3, .7, .4, 1.5);
+  }
+  .pushable:active .shadow {
+    transform: translateY(1px);
+    transition: transform 34ms;
+  }
+  .pushable:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+
+
+ 

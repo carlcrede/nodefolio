@@ -1,0 +1,37 @@
+
+<div class="contact-form-wrapper">
+    <div style="align-self: center;" class="contact-icons center">
+        <h1>Get in touch</h1>
+        <a href="https://www.linkedin.com/in/carl-christian-hasselbalch/"><i class="mdi mdi-linkedin mdi-48px mdi-light"></i></a>
+        <a href="https://github.com/carlcrede"><i class="mdi mdi-github mdi-48px mdi-light"></i></a>
+        <a href="https://www.facebook.com/credelicious/"><i class="mdi mdi-facebook mdi-48px mdi-light"></i></a>
+    </div>
+    <div class="contact-form">
+        <h1>...Or send me a message <i class="mdi mdi-message"></i></h1>
+        <form action="/api/contact" method="post">
+            <label>Name</label>
+            <input name="name" placeholder="Your name" type="text" required>
+
+            <label>Email</label>
+            <input name="email" placeholder="Your email address" type="email" required>
+
+            <label>Subject</label>
+            <input name="subject" placeholder="Enter a subject" type="text" required>
+
+            <label>Message</label>
+            <textarea name="message" placeholder="Enter your message here" type="text" rows="6" cols="20" required></textarea>
+            <button class="pushable" type="submit" id="contact-btn">
+                <span class="shadow"></span>
+                <span class="edge"></span>
+                <span class="front">Send message</span>
+            </button>
+        </form>
+    </div>
+</div>
+<script>
+    $(document).ready(function() {
+        $('#contact-btn').submit(function() {
+            toastr.success('Message sent. I\'ll reply ASAP.');
+        });
+    });
+</script>
