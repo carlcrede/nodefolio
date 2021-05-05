@@ -23,7 +23,7 @@ const projects = [
         description: 'Mandatory assignment for Creative Code - Drawing on canvas plays synth music notes - made with Howler & Tone.js.',
         gitLink: 'https://github.com/carlcrede/pitchdraw',
         hostedLink: 'https://pitchdraw.herokuapp.com/',
-        img: '/img/p.PNG'
+        img: 'p.PNG'
     },
     {
         title: 'Started from the bottom',
