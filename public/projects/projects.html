@@ -1,7 +1,6 @@
-
-<!-- TODO: make grid, also structure project fields -->
-<h1>Projects</h1>
-<div id="projects" class="projects-wrapper"></div>
+<h1 class="center">Projects</h1>
+<div id="projects" class="projects-wrapper">
+</div>
 
 <script>
     (async () => {
@@ -9,18 +8,9 @@
             const response = await fetch('/api/projects');
             const result = await response.json();
 
-            /* $.map(result.projects, function(value, index) {
-                Object.entries(value).map(entry => {
-                    console.log(entry);
-                    $('#projects').append(
-                        `<p>${entry[0]}: ${entry[1]}</p>`   
-                    );
-                });
-            }); */
-
             $.map(result.projects, function(value, index) {
                 $('#projects').append(
-                    `<div class="card">
+                    `<div class="card card-project">
                         <h2><b>Title:</b> ${value.title}</h2>
                         <p><b>Description:</b><br> ${value.description}</p>
                         <p><b>Github:</b> <a href="${value.gitLink}">${value.gitLink}</a></p>

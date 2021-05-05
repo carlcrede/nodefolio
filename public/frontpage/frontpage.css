@@ -94,9 +94,15 @@ body::-webkit-scrollbar {
     padding: 5px 15px;
     margin: 30px 10px;
     word-wrap: break-word;
+    box-shadow: 2.5px 8px 15px -5.5px rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
   }
 
-  .card p, .card a {
+  .card-project {
+    border-radius: 15px 5px 5px 5px;
+  }
+
+  .card p, .card a, .card h1 {
     color: #0f0f0f;
   }
 
@@ -105,7 +111,7 @@ body::-webkit-scrollbar {
     grid-template-columns: 33% 33% 33%;
     grid-template-rows: auto;
     justify-content: center;
-    color: #eee;
+    /* color: #eee; */
   }
 
   .projects-wrapper {
@@ -121,7 +127,8 @@ body::-webkit-scrollbar {
   }
 
   .projectImg > img {
-    max-width: 300px;
+    max-height: 218px;
+    border-radius: 5px 40px 30px 5px;
   }
 
   .contact-form-wrapper {

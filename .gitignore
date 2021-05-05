@@ -137,8 +137,8 @@ temp/
 *.code-workspace
 
 
-sendgrid.env
 jsconfig.json
+nodemon.json
 
 # End of https://www.toptal.com/developers/gitignore/api/node,vscode
 

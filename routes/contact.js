@@ -5,7 +5,7 @@ router.post('/api/contact', async (req, res) => {
     sendgridMail.setApiKey(process.env.SENDGRID_API_KEY);
     const msg = {
         to: process.env.MAILBOX,
-        from: `${req.body.email} <${process.env.SENDGRID_AUTH_DOMAIN}>`,
+        from: `Nodefolio <${process.env.SENDGRID_AUTH_DOMAIN}>`,
         subject: req.body.subject,
         text: `Sender's name: ${req.body.name}\nSender's email: ${req.body.email}\nMessage: ${req.body.message}`
     };
