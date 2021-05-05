@@ -19,12 +19,26 @@ router.get('/api/projects', (req, res) => {
 
 const projects = [
     {
-        title: 'Nodefolio',
-        description: 'Personal portfolio',
-        startDate: new Date('2021-04-08').toLocaleDateString('en-EN'),
-        endDate: new Date('2021-04-15').toLocaleDateString('en-EN'),
-        gitLink: 'https://github.com/carlcrede/nodejs_elective/tree/main/2/Nodefolio'
-    }
+        title: 'Pitchdraw',
+        description: 'Mandatory assignment for Creative Code - Drawing on canvas plays synth music notes - made with Howler & Tone.js.',
+        gitLink: 'https://github.com/carlcrede/pitchdraw',
+        hostedLink: 'https://pitchdraw.herokuapp.com/',
+        img: '/img/p.png'
+    },
+    {
+        title: 'Started from the bottom',
+        description: 'Mandatory assignment for Creative Code elective - This is a simple platformer made with Matter.js.',
+        gitLink: 'https://github.com/carlcrede/creative_code_mandatory1',
+        hostedLink: 'https://carlcrede.github.io/creative_code_mandatory1/',
+        img: '/img/bottom.png'
+    },
+    {
+        title: 'How to Node',
+        description: 'Mandatory assignment where I should document what I had learned so far in the course.',
+        gitLink: 'https://github.com/carlcrede/nodejs_mandatory01',
+        hostedLink: 'https://how-to-node.herokuapp.com/',
+        img: '/img/howtonode.png'
+    },
 ];
 
 module.exports = {

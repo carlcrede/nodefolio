@@ -3,6 +3,13 @@ copyright_element.innerHTML = `Copyright <i class="mdi mdi-copyright"></i> ${new
 
 $(() => {
     typeintro();
+
+    $(".pushable").click(function() {
+        if ($("#hydra").is(':hidden')) {
+            $("#hydra").attr('src', 'https://hydra.ojack.xyz/');
+        }
+        $("#hydra").toggle('show');
+    });
 });
 
 const intro_text = 'Hi there. My name is Christian and I am a developer. Prepare for your mind to be blown.';

@@ -1,25 +1,22 @@
 const router = require('express').Router();
-const nodemailer = require('nodemailer');
-const sendgrid = require('nodemailer-sendgrid');
-const transport = nodemailer.createTransport(sendgrid({apiKey: process.env.SENDGRID_API_KEY}));
+const sendgridMail = require('@sendgrid/mail');
 
-router.post('/api/contact', (req, res) => {
-    //console.log(req.body);
-    res.redirect('/');
-    // some form validation..
-    // send email with nodemailer
-    transport.sendMail({
-        from: '"Nodefolio" <carl_hassel@hotmail.com>',
-        to: 'carlcrede@gmail.com',
+router.post('/api/contact', async (req, res) => {
+    sendgridMail.setApiKey(process.env.SENDGRID_API_KEY);
+    const msg = {
+        to: process.env.MAILBOX,
+        from: `${req.body.email} <${process.env.SENDGRID_AUTH_DOMAIN}>`,
         subject: req.body.subject,
-        text: `Message: ${req.body.message}\nSender's email: ${req.body.email}`
-    })
-    .then(([res]) => {
-        console.log(`Message delivered with code ${res.statusCode} ${res.statusMessage}`);
-    })
-    .catch(err => {
-        console.log('Error:', err);
-    })
+        text: `Sender's name: ${req.body.name}\nSender's email: ${req.body.email}\nMessage: ${req.body.message}`
+    };
+    try {
+        await sendgridMail.send(msg);
+        res.sendStatus(200);
+    } catch (error) {
+        console.error(error);
+        res.sendStatus(500);
+        if (error.response) { console.error(error.response.body); }
+    }
 });
 
 module.exports = {

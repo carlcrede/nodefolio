@@ -6,9 +6,9 @@
         <a href="https://github.com/carlcrede"><i class="mdi mdi-github mdi-48px mdi-light"></i></a>
         <a href="https://www.facebook.com/credelicious/"><i class="mdi mdi-facebook mdi-48px mdi-light"></i></a>
     </div>
-    <div class="contact-form">
+    <div>
         <h1>...Or send me a message <i class="mdi mdi-message"></i></h1>
-        <form action="/api/contact" method="post">
+        <form action="/api/contact" method="post" id="contact-form">
             <label>Name</label>
             <input name="name" placeholder="Your name" type="text" required>
 
@@ -20,18 +20,27 @@
 
             <label>Message</label>
             <textarea name="message" placeholder="Enter your message here" type="text" rows="6" cols="20" required></textarea>
+            
             <button class="pushable" type="submit" id="contact-btn">
                 <span class="shadow"></span>
                 <span class="edge"></span>
                 <span class="front">Send message</span>
             </button>
         </form>
+        <script>
+            $(function() {
+                toastr.options = { 'progressBar': true , "positionClass": "toast-top-center"}
+                $('#contact-form').submit(function(event) {
+                    event.preventDefault();
+                    $.post('/api/contact', $(this).serializeArray(), (data) => {
+                          $(this).trigger('reset');
+                    }).done(function() {
+                        toastr.success('Message sent. I\'ll reply ASAP.', 'Thanks!');
+                    }).fail(function() {
+                        toastr.error('Something went wrong. Check your inputs and try again.', 'Uh-oh');
+                    });
+                });
+            })
+        </script>
     </div>
 </div>
-<script>
-    $(document).ready(function() {
-        $('#contact-btn').submit(function() {
-            toastr.success('Message sent. I\'ll reply ASAP.');
-        });
-    });
-</script>
